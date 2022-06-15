@@ -1,5 +1,9 @@
 # student_id 00011992
 
+## heroku https://web-tech-cw2-00011992.herokuapp.com/
+
+## github https://github.com/Berserker010/webtech-cw2-00011992/
+
 #### About
 
 ##### User can create, edit, complete or delete a todo
