@@ -1,0 +1,34 @@
+extends layout.pug 
+
+block content 
+  div.row 
+    if title == "Todos"
+      button(id="createTodo").button CREATE A NEW TODO
+  ul
+    each val in data.todos
+      li
+        div.todo.card
+          h2 #{val.title}
+          br
+          p #{val.task}
+          br
+          p DATE OF CREATION: #{val.createdTime}
+          if val.isCompleted
+            br
+            p DATE OF COMPLETION: #{val.completedTime}
+          if val.isEdited
+            br
+            p.edited EDITED
+          br
+          if title == "Todos"
+            div.buttons
+              button(data-todo=val.id).button EDIT 
+              button(data-complete=val.id).button COMPLETE
+              button(data-delete=val.id).button.danger DELETE
+  div(id="todoForm", data-todo="createTodo").card
+    div.inputs-row
+      input(type="text" id="todoTitle" name="todoTitle" required placeholder="Title")
+    textarea(name="", cols="30", rows="10" id="todoTask" required placeholder="Task description")
+    div.buttons
+      button(id="saveTodo").button SAVE
+      button(id="cancelSave").button.delete CANCEL
